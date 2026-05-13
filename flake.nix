@@ -4,10 +4,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    # home-manager = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { self, nixpkgs, ... }@inputs: {
     # use "nixos", or your hostname as the name of the configuration
@@ -17,7 +17,7 @@
       modules = [
         ./configuration.nix
 	inputs.nix-flatpak.nixosModules.nix-flatpak
-        # inputs.home-manager.nixosModules.default
+	inputs.home-manager.nixosModules.default
       ];
     };
   };
