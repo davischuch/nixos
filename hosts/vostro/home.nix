@@ -33,14 +33,17 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     btop
+    fastfetch
     librewolf
     keepassxc
     thunderbird
     libreoffice
-    xfce.thunar
+    thunar
     obsidian
     kdePackages.kleopatra
     wireshark
+    tmux
+    gnomeExtensions.caffeine
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
