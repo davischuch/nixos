@@ -13,7 +13,7 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./configuration.nix
+        ./hosts/vostro/configuration.nix
 	inputs.nix-flatpak.nixosModules.nix-flatpak
 	inputs.home-manager.nixosModules.default
       ];

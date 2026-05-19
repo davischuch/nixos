@@ -84,20 +84,11 @@
     isNormalUser = true;
     description = "user";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    	librewolf
-	keepassxc
-     	thunderbird
-     	libreoffice
-     	xfce.thunar
-     	obsidian
-     	kdePackages.kleopatra
-     	wireshark
-    ];
+    packages = with pkgs; [];
   };
 
   home-manager = {
-    specialArgs = {inherit input;};
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "user" = import ./home.nix;
     };
