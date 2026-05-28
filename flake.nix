@@ -1,7 +1,7 @@
 {
   description = "Nixos config flake";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     #stm32cubeide.url = "path:./modules/nixos/stm32cubeide";
     #platformio.url = "path:./modules/nixos/platformio";
