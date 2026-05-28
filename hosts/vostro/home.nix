@@ -32,7 +32,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    btop
     fastfetch
     librewolf
     keepassxc
@@ -45,6 +44,7 @@
     tmux
     gnomeExtensions.caffeine
     tor-browser
+    stm32cubemx
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -65,10 +65,10 @@
   programs.git = {
      enable = true;
      settings = {
-       user.name = "davischuch"
-       user.email = "davischuch@proton.me"
-     }
-  }
+       user.name = "davischuch";
+       user.email = "davischuch@proton.me";
+     };
+  };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

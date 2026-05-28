@@ -109,12 +109,14 @@
      wget
      btop
      alacritty
+     foot
      git
      docker
      gcc
      gdb
      wine
      nh
+     nix-direnv
   ];
 
   # Enable flatpaks
