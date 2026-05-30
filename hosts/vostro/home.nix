@@ -58,6 +58,11 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    #direnv flakes for stm32 projects
+    "projects/stm32/flake.nix".source = ./../../modules/home-manager/direnv/stm32/flake.nix;
+    "projects/stm32/flake.lock".source = ./../../modules/home-manager/direnv/stm32/flake.lock;
+    "projects/stm32/.envrc".source = ./../../modules/home-manager/direnv/stm32/.envrc;
   };
 
   programs.git = {
