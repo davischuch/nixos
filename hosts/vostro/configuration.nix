@@ -5,10 +5,14 @@
 { config, pkgs, inputs, ... }:
 
 {
+  environment.sessionVariables = {
+    NH_FLAKE = "/home/user/nixos";
+  };
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/nixos/tor.nix
+      #../../modules/nixos/tor.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -116,11 +120,15 @@
      gdb
      wine
      nh
+     direnv
      nix-direnv
+     home-manager
   ];
 
   # Enable flatpaks
   services.flatpak.enable = true;
+
+  programs.direnv.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

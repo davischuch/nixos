@@ -37,14 +37,13 @@
     keepassxc
     thunderbird
     libreoffice
-    thunar
+    xfce.thunar
     obsidian
     kdePackages.kleopatra
     wireshark
     tmux
     gnomeExtensions.caffeine
     tor-browser
-    stm32cubemx
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -54,6 +53,8 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+
+    #".bashrc".source = ./../../modules/home-manager/dotfiles/bashrc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
