@@ -53,9 +53,6 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-
-    #".bashrc".source = ./../../modules/home-manager/dotfiles/bashrc;
-
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -64,11 +61,16 @@
   };
 
   programs.git = {
-     enable = true;
-     settings = {
-       user.name = "davischuch";
-       user.email = "davischuch@proton.me";
-     };
+    enable = true;
+    settings = {
+      user.name = "davischuch";
+      user.email = "davischuch@proton.me";
+    };
+  };
+
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''PS1="\n\e[0;32m┌──\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m \n└─╼\e[m"'';
   };
 
   # Home Manager can also manage your environment variables through
