@@ -123,6 +123,7 @@
      direnv
      nix-direnv
      home-manager
+     lf
   ];
 
   # Enable flatpaks
