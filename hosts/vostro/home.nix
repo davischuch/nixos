@@ -1,6 +1,14 @@
-{ config, pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
+  imports = [
+    # dotfiles
+    ../.././modules/home/dotfiles/nvim.nix
+
+    # direnv flakes
+    ../.././modules/home/direnv/embeded.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "user";
@@ -15,6 +23,7 @@
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
+  # allow unfree software
   nixpkgs.config.allowUnfree = true;
 
   # The home.packages option allows you to install Nix packages into your
@@ -32,17 +41,25 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    fastfetch
+
+    # basics
     librewolf
     keepassxc
-    thunderbird
-    libreoffice
     xfce.thunar
-    obsidian
+    thunderbird
     kdePackages.kleopatra
-    wireshark
+    libreoffice
+    obsidian
+
+    # terminal
+    fastfetch
     tmux
+    
+    # extensions
     gnomeExtensions.caffeine
+
+    # dev kinda
+    wireshark
     tor-browser
   ];
 
@@ -58,13 +75,8 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-
-    #direnv flakes for stm32 projects
-    "projects/stm32/flake.nix".source = ./../../modules/home-manager/direnv/stm32/flake.nix;
-    "projects/stm32/flake.lock".source = ./../../modules/home-manager/direnv/stm32/flake.lock;
-    "projects/stm32/.envrc".source = ./../../modules/home-manager/direnv/stm32/.envrc;
   };
-
+ 
   programs.git = {
     enable = true;
     settings = {
@@ -75,7 +87,7 @@
 
   programs.bash = {
     enable = true;
-    bashrcExtra = ''PS1="\n\e[0;32m┌──\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m \n└─╼\e[m"'';
+    bashrcExtra = ''PS1="\n\e[0;32m\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m─╼\e[m "'';
   };
 
   # Home Manager can also manage your environment variables through

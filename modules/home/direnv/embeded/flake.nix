@@ -43,6 +43,7 @@
                 vcpkg-tool
                 self.formatter.${system}
                 stm32cubemx
+		            arduino-ide
               ]
               ++ pkgs.lib.optionals (stdenv.hostPlatform.system != "aarch64-darwin") [ gdb ];
 

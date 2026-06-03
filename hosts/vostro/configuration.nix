@@ -124,6 +124,13 @@
      nix-direnv
      home-manager
      lf
+     fzf
+     fd
+     eza
+     nixd
+     zoxide
+     tldr
+     bat
   ];
 
   # Enable flatpaks
