@@ -108,26 +108,35 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     neovim
-     wget
-     btop
+     # terminals
      alacritty
      foot
+
+     # editors
+     vim 
+     neovim
+
+     # general tools
+     wget
      git
      docker
      gcc
      gdb
      wine
+
+     # nix tools
      nh
      direnv
      nix-direnv
      home-manager
+     nixd
+
+     # TUIs / terminal shananingans
+     btop
      lf
      fzf
      fd
      eza
-     nixd
      zoxide
      tldr
      bat
