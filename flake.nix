@@ -15,15 +15,29 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/vostro/configuration.nix
-	        inputs.nix-flatpak.nixosModules.nix-flatpak
+	  inputs.nix-flatpak.nixosModules.nix-flatpak
 
-	        inputs.home-manager.nixosModules.default {
-	          home-manager.useGlobalPkgs = true;
+	  inputs.home-manager.nixosModules.default {
+	    home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.user = ./hosts/vostro/home.nix;
-	        }
-	      ];
+	  }
+        ];
+      };
+      dell = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/dell/configuration.nix
+	  inputs.nix-flatpak.nixosModules.nix-flatpak
+
+	  inputs.home-manager.nixosModules.default {
+	    home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.user = ./hosts/dell/home.nix;
+	  }
+        ];
       };
     };
   };
