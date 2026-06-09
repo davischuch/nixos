@@ -6,7 +6,7 @@
     ../.././modules/home/dotfiles/nvim.nix
 
     # direnv flakes
-    ../.././modules/home/direnv/embeded.nix
+    #../.././modules/home/direnv/embeded.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
