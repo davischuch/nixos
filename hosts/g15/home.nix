@@ -49,7 +49,7 @@
     thunderbird
     kdePackages.kleopatra
     libreoffice
-    #obsidian
+    obsidian
 
     # terminal
     fastfetch
