@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "dell"; # Define your hostname.
+  networking.hostName = "g15"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -90,7 +90,7 @@
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs};
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "davy" = import ./home.nix;
     };
@@ -147,7 +147,6 @@
   services.flatpak.enable = true;
 
   programs.direnv.enable = true;
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
