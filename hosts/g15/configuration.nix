@@ -147,10 +147,17 @@
     "docker-28.5.2"
   ];
 
-  # Enable flatpaks
   services.flatpak.enable = true;
 
   programs.direnv.enable = true;
+
+  # enable nvidia drivers
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    open = true;
+    nvidiaSettings = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
