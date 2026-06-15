@@ -57,7 +57,7 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
-    variant = "intl";
+    variant = "alt-intl";
   };
 
   # Configure console keymap
@@ -152,13 +152,30 @@
   programs.direnv.enable = true;
 
   # enable nvidia drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
-
+  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+  hardware.graphics.enable = true;
   hardware.nvidia = {
+    modesetting.enable = true;
     open = true;
     nvidiaSettings = true;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
+    prime = {
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
+      nvidiaBusId = "PCI:1@0:0:0";
+      amdgpuBusId = "PCI:5@0:0:0";
+    };
   };
 
+  # firewall configs
+  networking.firewall = {
+    enable = true;
+    # allowedTCPPorts = [ 2556 ];
+  };
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -171,12 +188,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

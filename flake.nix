@@ -15,28 +15,28 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/vostro/configuration.nix
-	  inputs.nix-flatpak.nixosModules.nix-flatpak
+          inputs.nix-flatpak.nixosModules.nix-flatpak
 
-	  inputs.home-manager.nixosModules.default {
-	    home-manager.useGlobalPkgs = true;
+          inputs.home-manager.nixosModules.default {
+	          home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.user = ./hosts/vostro/home.nix;
-	  }
+	        }
         ];
       };
       g15 = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/g15/configuration.nix
-	  inputs.nix-flatpak.nixosModules.nix-flatpak
+	        inputs.nix-flatpak.nixosModules.nix-flatpak
 
-	  inputs.home-manager.nixosModules.default {
-	    home-manager.useGlobalPkgs = true;
+	        inputs.home-manager.nixosModules.default {
+	          home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.davy = ./hosts/g15/home.nix;
-	  }
+	        }
         ];
       };
     };
