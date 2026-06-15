@@ -43,7 +43,6 @@
     # '')
 
     # basics
-    librewolf
     keepassxc
     xfce.thunar
     thunderbird
@@ -61,6 +60,9 @@
     # dev kinda
     wireshark
     tor-browser
+
+    # games
+    steam
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -88,6 +90,50 @@
   programs.bash = {
     enable = true;
     bashrcExtra = ''PS1="\n\e[0;32m\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m─╼\e[m "'';
+  };
+
+  programs.librewolf = {
+    enable = true;
+    settings = {
+      # vertical tabs config
+      "sidebar.verticalTabs" = true;
+      "sidebar.revamp" = true;
+      "sidebar.main.tools" = " ";
+      "sidebar.new-sidebar.has-used" = true;
+      "sidebar.verticalTabs.dragToPinPromo.dismissed" = true;
+
+      # toolbar
+      "browser.toolbars.bookmarks.visibility" = "never";
+      "browser.uiCustomization.navBarWhenVerticalTabs" = ''["sidebar-button","vertical-spacer","customizableui-special-spring1","customizableui-special-spring8","back-button","forward-button","stop-reload-button","urlbar-container","customizableui-special-spring9","customizableui-special-spring6","customizableui-special-spring2","fxa-toolbar-menu-button","reset-pbm-toolbar-button","unified-extensions-button","ublock0_raymondhill_net-browser-action"]'';
+      "browser.uiCustomization.state" = ''{"placements":{"widget-overflow-fixed-list":["downloads-button"],"unified-extensions-area":["addon_darkreader_org-browser-action"],"nav-bar":["sidebar-button","vertical-spacer","customizableui-special-spring1","customizableui-special-spring8","back-button","forward-button","stop-reload-button","urlbar-container","customizableui-special-spring9","customizableui-special-spring6","customizableui-special-spring2","fxa-toolbar-menu-button","reset-pbm-toolbar-button","unified-extensions-button","ublock0_raymondhill_net-browser-action","keepassxc-browser_keepassxc_org-browser-action"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["personal-bookmarks"]},"seen":["reset-pbm-toolbar-button","developer-button","screenshot-button","ublock0_raymondhill_net-browser-action","addon_darkreader_org-browser-action","keepassxc-browser_keepassxc_org-browser-action"],"dirtyAreaCache":["nav-bar","vertical-tabs","toolbar-menubar","TabsToolbar","PersonalToolbar","widget-overflow-fixed-list","unified-extensions-area"],"currentVersion":24,"newElementCount":9}'';
+    };
+    policies = {
+      ExtensionSettings = {
+        "uBLock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+          default_area = "menupanel";
+        };
+        "addon@darkreader.org" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/addon@darkreader.org/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        "keepassxc-browser@keepassxc.org" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser@keepassxc.org/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = false;
+          default_area = "menupanel";
+        };
+        "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = { # vimium
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/{d7742d87-e61d-4b78-b8a1-b469842139fa}/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = false;
+          default_area = "menupanel";
+        };
+      };
+    };
   };
 
   # Home Manager can also manage your environment variables through
