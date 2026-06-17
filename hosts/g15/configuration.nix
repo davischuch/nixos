@@ -74,8 +74,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -89,7 +88,7 @@
   users.users.davy = {
     isNormalUser = true;
     description = "davy";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
     packages = with pkgs; [];
   };
 
@@ -109,38 +108,46 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     # terminals
-     alacritty
-     foot
+    
+    # terminals
+    alacritty
+    foot
 
-     # editors
-     vim 
-     neovim
+    # editors
+    vim 
+    neovim
 
-     # general tools
-     wget
-     git
-     docker
-     gcc
-     gdb
-     wine
+    # general tools
+    wget
+    git
+    docker
+    gcc
+    gdb
+    wine
+    pciutils
 
-     # nix tools
-     nh
-     direnv
-     nix-direnv
-     home-manager
-     nixd
+    # nix tools
+    nh
+    direnv
+    nix-direnv
+    home-manager
+    nixd
 
-     # TUIs / terminal shananingans
-     btop
-     lf
-     fzf
-     fd
-     eza
-     zoxide
-     tldr
-     bat
+    # TUIs / terminal shananingans
+    btop
+    lf
+    fzf
+    fd
+    eza
+    zoxide
+    tldr
+    bat
+
+    # music prod
+    ardour
+    calf
+    x42-plugins
+    helm
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -177,6 +184,12 @@
     enable = true;
     # allowedTCPPorts = [ 2556 ];
   };
+
+  # music production config
+  musnix.enable = true;
+  #musnix.soundcardPciId = "PCI:5@0.0.5";
+  #musnix.kernel.realtime = true;
+  #musnix.rtirq.enable = true;
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

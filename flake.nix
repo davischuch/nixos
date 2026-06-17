@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    musnix.url = "github:musnix/musnix";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -30,6 +31,7 @@
         modules = [
           ./hosts/g15/configuration.nix
 	        inputs.nix-flatpak.nixosModules.nix-flatpak
+          inputs.musnix.nixosModules.musnix
 
 	        inputs.home-manager.nixosModules.default {
 	          home-manager.useGlobalPkgs = true;
