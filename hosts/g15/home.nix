@@ -60,6 +60,7 @@
     # dev kinda
     wireshark
     tor-browser
+    distrobox
 
     # games
     steam

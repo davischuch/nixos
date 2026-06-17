@@ -89,7 +89,7 @@
   users.users.davy = {
     isNormalUser = true;
     description = "davy";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -146,6 +146,8 @@
   nixpkgs.config.permittedInsecurePackages = [
     "docker-28.5.2"
   ];
+
+  virtualisation.docker.enable = true;
 
   services.flatpak.enable = true;
 
