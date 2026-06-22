@@ -2,18 +2,23 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   environment.sessionVariables = {
     NH_FLAKE = "/home/davy/nixos";
   };
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -88,12 +93,18 @@
   users.users.davy = {
     isNormalUser = true;
     description = "davy";
-    extraGroups = [ "networkmanager" "wheel" "docker" "audio" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "audio"
+      "dialout"
+    ];
+    packages = with pkgs; [ ];
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "davy" = import ./home.nix;
     };
@@ -103,18 +114,21 @@
   nixpkgs.config.allowUnfree = true;
 
   # enable flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    
+
     # terminals
     alacritty
     foot
 
     # editors
-    vim 
+    vim
     neovim
 
     # general tools
@@ -142,12 +156,6 @@
     zoxide
     tldr
     bat
-
-    # music prod
-    ardour
-    calf
-    x42-plugins
-    helm
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -161,7 +169,10 @@
   programs.direnv.enable = true;
 
   # enable nvidia drivers
-  services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "amdgpu"
+  ];
   hardware.graphics.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;
@@ -182,7 +193,7 @@
   # firewall configs
   networking.firewall = {
     enable = true;
-    # allowedTCPPorts = [ 2556 ];
+#    allowedTCPPorts = [ 6969 ];
   };
 
   # music production config
@@ -190,7 +201,7 @@
   #musnix.soundcardPciId = "PCI:5@0.0.5";
   #musnix.kernel.realtime = true;
   #musnix.rtirq.enable = true;
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

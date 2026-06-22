@@ -64,6 +64,15 @@
 
     # games
     steam
+
+    # music prod
+    ardour
+    calf
+    x42-plugins
+    helm
+
+    # misc
+    unetbootin
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
