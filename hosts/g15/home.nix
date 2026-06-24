@@ -4,6 +4,8 @@
   imports = [
     # dotfiles
     ../.././modules/home/dotfiles/nvim.nix
+    ../.././modules/home/dotfiles/foot.nix
+    ../.././modules/home/dotfiles/tmux.nix
 
     # direnv flakes
     #../.././modules/home/direnv/embeded.nix
@@ -22,9 +24,6 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
-
-  # allow unfree software
-  nixpkgs.config.allowUnfree = true;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -100,6 +99,16 @@
   programs.bash = {
     enable = true;
     bashrcExtra = ''PS1="\n\e[0;32m\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m─╼\e[m "'';
+  };
+
+  programs.foot = {
+    settings = {
+      main = {
+        term = "xterm-256color";
+        font = "monospace:size=24";
+        pad = "15x5";
+      };
+    };
   };
 
   programs.librewolf = {
