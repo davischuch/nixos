@@ -6,6 +6,7 @@
   config,
   pkgs,
   inputs,
+  lib,
   ...
 }:
 
@@ -110,17 +111,13 @@
     };
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # enable flakes
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # ── System Packages ──────────────────────────
   environment.systemPackages = with pkgs; [
 
     # terminals
@@ -139,6 +136,7 @@
     gdb
     wine
     pciutils
+    iftop
 
     # nix tools
     nh
@@ -158,9 +156,45 @@
     bat
   ];
 
+  # ── Fonts ─────────────────────────────────────
+  fonts = {
+    packages = with pkgs; [
+      jetbrains-mono
+      geist-font
+    ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Geist" ];
+        sansSerif = [ "Geist" ];
+        monospace = [ "JetBrains Mono" ];
+      };
+    };
+  };
+
+  # ── Insecure Packages ─────────────────────────
   nixpkgs.config.permittedInsecurePackages = [
     "docker-28.5.2"
+    "librewolf-151.0.2-1"
+    "librewolf-unwrapped-151.0.2-1"
   ];
+
+  # ── Unfree Packages ───────────────────────────
+  nixpkgs.config.allowUnfree = true; 
+  #nixpkgs-unstable.config.allowUnfree = true;
+  #nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  #  "open-webui"
+  #  "obsidian"
+  #  "steam"
+  #  "steam-unwrapped"
+  #  "nvidia-settings"
+  #  "nvidia-x11"
+  #  "cuda_cudart"
+  #  "cuda_nvcc"
+  #  "cuda_cccl"
+  #  "libcublas"
+  #  "libcurand"
+  #  "libcusparse"
+  #];
 
   virtualisation.docker.enable = true;
 
@@ -168,7 +202,7 @@
 
   programs.direnv.enable = true;
 
-  # enable nvidia drivers
+  # ── NVIDIA Drivers ────────────────────────────
   services.xserver.videoDrivers = [
     "nvidia"
     "amdgpu"
@@ -176,7 +210,7 @@
   hardware.graphics.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;
-    open = true;
+    open = false;
     nvidiaSettings = true;
     powerManagement = {
       enable = true;
@@ -189,14 +223,27 @@
       amdgpuBusId = "PCI:5@0:0:0";
     };
   };
+  #nixpkgs.config.cudaSupport = true;
 
-  # firewall configs
+  # ── Local LLMs ────────────────────────────────
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
+    acceleration = "cuda";
+  };
+  #services.open-webui = {
+  #  enable = true;
+  #  package = pkgs.unstable.open-webui;
+  #};
+
+  # ── Firewall ──────────────────────────────────
   networking.firewall = {
     enable = true;
 #    allowedTCPPorts = [ 6969 ];
   };
 
   # music production config
+  # ── Music Prod ────────────────────────────────
   musnix.enable = true;
   #musnix.soundcardPciId = "PCI:5@0.0.5";
   #musnix.kernel.realtime = true;
