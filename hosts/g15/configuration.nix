@@ -57,8 +57,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -119,7 +119,6 @@
 
   # ── System Packages ──────────────────────────
   environment.systemPackages = with pkgs; [
-
     # terminals
     alacritty
     foot
@@ -179,22 +178,17 @@
   ];
 
   # ── Unfree Packages ───────────────────────────
-  nixpkgs.config.allowUnfree = true; 
-  #nixpkgs-unstable.config.allowUnfree = true;
-  #nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  #  "open-webui"
-  #  "obsidian"
-  #  "steam"
-  #  "steam-unwrapped"
-  #  "nvidia-settings"
-  #  "nvidia-x11"
-  #  "cuda_cudart"
-  #  "cuda_nvcc"
-  #  "cuda_cccl"
-  #  "libcublas"
-  #  "libcurand"
-  #  "libcusparse"
-  #];
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "obsidian"
+    "steam"
+    "steam-unwrapped"
+    "nvidia-settings"
+    "nvidia-x11"
+    "cuda_cudart"
+    "cuda_nvcc"
+    "cuda_cccl"
+    "libcublas"
+  ];
 
   virtualisation.docker.enable = true;
 
