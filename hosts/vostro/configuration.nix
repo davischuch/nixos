@@ -142,6 +142,11 @@
      bat
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "docker-28.5.2"
+  ];
+
+
   # Enable flatpaks
   services.flatpak.enable = true;
 

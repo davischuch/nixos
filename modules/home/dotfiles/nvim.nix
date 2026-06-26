@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink "/home/user/nixos/modules/home/dotfiles/nvim/";
+  home.file.".config/nvim/".source = config.lib.file.mkOutOfStoreSymlink "/home/${config.home.username}/nixos/modules/home/dotfiles/nvim/";
 }
