@@ -16,9 +16,11 @@
   };
 
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
+    
+    # modules
+    ./../../modules/nixos/prog.nix
   ];
 
   # Bootloader.
@@ -136,6 +138,7 @@
     wine
     pciutils
     iftop
+    upower
 
     # nix tools
     nh
@@ -188,6 +191,7 @@
     "cuda_nvcc"
     "cuda_cccl"
     "libcublas"
+    "stm32cubemx"
   ];
 
   virtualisation.docker.enable = true;
