@@ -1,0 +1,12 @@
+{
+  "cssTheme": "Minimal",
+  "showViewHeader": true,
+  "theme": "obsidian",
+  "baseFontSize": 14,
+  "showRibbon": false,
+  "enabledCssSnippets": [
+    "snippets"
+  ],
+  "interfaceFontFamily": "",
+  "nativeMenus": false
+}

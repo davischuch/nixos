@@ -1,0 +1,249 @@
+{
+  "main": {
+    "id": "ba702dfa0735e256",
+    "type": "split",
+    "children": [
+      {
+        "id": "fc8fcff2c613e191",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4bbae462475a40fa",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "dashboard.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "dashboard"
+            }
+          }
+        ]
+      },
+      {
+        "id": "6fd4e7c3c8c559df",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6c1f83603a1b920b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0.Projects/devices setup.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "devices setup"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bfc9196ddf5ac4db",
+    "type": "split",
+    "children": [
+      {
+        "id": "8feebcf6a762921a",
+        "type": "tabs",
+        "dimension": 68.88667992047714,
+        "children": [
+          {
+            "id": "5ccc7f64558ce9b3",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "5a2c9c2e29ff0417",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e442bbdfce7112b0",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      },
+      {
+        "id": "2f1bf222689f099a",
+        "type": "tabs",
+        "dimension": 31.11332007952286,
+        "children": [
+          {
+            "id": "81670a5e9856fe32",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "8b7fabb998cd821d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "0.Projects/devices setup.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of devices setup"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 321.5
+  },
+  "right": {
+    "id": "8a349907da0063e9",
+    "type": "split",
+    "children": [
+      {
+        "id": "0f8b5573ad82f082",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ed3acc7482109a53",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "0.Projects/devices setup.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for devices setup"
+            }
+          },
+          {
+            "id": "cc6c33872576c3e5",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "0.Projects/main.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from main"
+            }
+          },
+          {
+            "id": "b2f580e2fff2eafe",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "523d0cdf795ada9b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": true,
+      "canvas:Create new canvas": true,
+      "daily-notes:Open today's daily note": true,
+      "templates:Insert template": true,
+      "command-palette:Open command palette": true,
+      "bases:Create new base": true,
+      "omnisearch:Omnisearch": true,
+      "sheet-plus:Create excel file": true,
+      "daily-notes-editor:Open Daily Note Editor": false
+    }
+  },
+  "active": "6c1f83603a1b920b",
+  "lastOpenFiles": [
+    "dashboard.md",
+    "0.Projects/main.md",
+    "0.Projects/prepping.md",
+    "0.Projects/devices setup.md",
+    "0.Projects/uni/uni.md",
+    "0.Projects/uni/UFRGS.md",
+    "0.Projects/uni/UNICAMP.md",
+    "overview.base",
+    "2.Daily/2026-06-30.md",
+    "2.Daily/2026-06-29.md",
+    "2.Daily/2026-01-11.org",
+    "2.Daily/2026-05-24.md",
+    "2.Daily/2026-05-25.md",
+    "2.Daily/2026-06-17.md",
+    "Excel 2026-06-30 20.14.59.univer.md",
+    "Excel 2026-06-30 20.14.58.univer.md",
+    "Excel 2026-06-30 20.14.49.univer.md",
+    "2026-06-29.md",
+    "2026-06-17.md",
+    "0.Projects/uni"
+  ]
+}
