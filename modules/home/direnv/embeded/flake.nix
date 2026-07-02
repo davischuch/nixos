@@ -1,10 +1,18 @@
 {
   description = "A Nix-flake-based PlatformIO development environment";
 
-  inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1"; # unstable Nixpkgs
+  inputs = {
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1"; # unstable Nixpkgs
+    #nixpkgs-esp-dev.url = "github:mirrexagon/nixpkgs-esp-dev";
+  };
 
   outputs =
-    { self, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      #nixpkgs-esp-dev,
+      ...
+    }@inputs:
 
     let
       supportedSystems = [
@@ -18,7 +26,14 @@
           system:
           f {
             inherit system;
-            pkgs = import inputs.nixpkgs { inherit system; config.allowUnfree = true;};
+            pkgs = import inputs.nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+              #overlays = [ (import "${nixpkgs-esp-dev}/overlay.nix") ];
+              #config.permittedInsecurePackages = [
+              #  "python3.13-ecdsa-0.19.2"
+              #];
+            };
           }
         );
     in
@@ -43,7 +58,9 @@
                 vcpkg-tool
                 self.formatter.${system}
                 stm32cubemx
-		            arduino-ide
+                #arduino-ide
+                #esp-idf-full
+                vscodium-fhs
               ]
               ++ pkgs.lib.optionals (stdenv.hostPlatform.system != "aarch64-darwin") [ gdb ];
 
