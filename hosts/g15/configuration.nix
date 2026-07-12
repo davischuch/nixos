@@ -20,7 +20,7 @@
     inputs.home-manager.nixosModules.default
     
     # modules
-    ./../../modules/nixos/prog.nix
+    ./../../modules/prog.nix
   ];
 
   # Bootloader.

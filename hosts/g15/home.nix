@@ -3,12 +3,12 @@
 {
   imports = [
     # dotfiles
-    ../.././modules/home/dotfiles/nvim.nix
-    ../.././modules/home/dotfiles/foot.nix
-    ../.././modules/home/dotfiles/tmux.nix
+    ../.././modules/dotfiles/nvim.nix
+    ../.././modules/dotfiles/foot.nix
+    ../.././modules/dotfiles/tmux.nix
 
     # direnv flakes
-    #../.././modules/home/direnv/embeded.nix
+    #../.././modules/direnv/embeded.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

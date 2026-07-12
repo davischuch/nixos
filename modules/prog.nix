@@ -8,7 +8,7 @@
     clang-tools
     cmake
     codespell
-    conan
+#    conan
     cppcheck
     doxygen
     gtest
