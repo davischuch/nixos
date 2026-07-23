@@ -183,9 +183,9 @@
 
   # ── Unfree Packages ───────────────────────────
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "obsidian"
     "steam"
-    "steam-unwrapped"
+    "steam-unwrapped"    
+    "obsidian"
     "stm32cubemx"
   ];
 
@@ -228,6 +228,14 @@
       SSID = "t480";
       PASSPHRASE = "7891141025631";
     };
+  };
+
+  # ── Steam config  ─────────────────────────────
+  programs.steam = {
+    enable = true;
+#    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+#    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+#    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

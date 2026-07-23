@@ -49,6 +49,7 @@
     libreoffice
     obsidian
     firefox
+    kdePackages.okular
 
     # terminal
     fastfetch
@@ -62,9 +63,6 @@
     wireshark
     tor-browser
     distrobox
-
-    # games
-    steam
 
     # music prod
     ardour
@@ -157,6 +155,7 @@
       };
     };
   };
+
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
