@@ -49,6 +49,7 @@
     libreoffice
     obsidian
     firefox
+    mullvad-browser
     kdePackages.okular
 
     # terminal

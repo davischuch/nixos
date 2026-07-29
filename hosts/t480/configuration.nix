@@ -196,15 +196,15 @@
   programs.direnv.enable = true;
 
   # ── Local LLMs ────────────────────────────────
-#  services.ollama = {
-#    enable = true;
+  services.ollama = {
+    enable = true;
 #    package = pkgs.ollama-cuda;
 #    acceleration = "cuda";
+  };
+#  services.open-webui = {
+#    enable = true;
+#    package = pkgs.unstable.open-webui;
 #  };
-  #services.open-webui = {
-  #  enable = true;
-  #  package = pkgs.unstable.open-webui;
-  #};
 
   # ── Firewall ──────────────────────────────────
   networking.firewall = {
@@ -215,20 +215,9 @@
   # music production config
   # ── Music Prod ────────────────────────────────
   musnix.enable = true;
-  #musnix.soundcardPciId = "PCI:5@0.0.5";
-  #musnix.kernel.realtime = true;
-  #musnix.rtirq.enable = true;
-
-  # ── Wifi hotspot  ─────────────────────────────
-  services.create_ap = {
-    enable = true;
-    settings = {
-      INTERNET_IFACE = "enp0s31f6";
-      WIFI_IFACE = "wlp3s0";
-      SSID = "t480";
-      PASSPHRASE = "7891141025631";
-    };
-  };
+#  musnix.soundcardPciId = "PCI:5@0.0.5";
+#  musnix.kernel.realtime = true;
+#  musnix.rtirq.enable = true;
 
   # ── Steam config  ─────────────────────────────
   programs.steam = {
