@@ -51,6 +51,7 @@
     firefox
     mullvad-browser
     kdePackages.okular
+    qbittorrent
 
     # terminal
     fastfetch
@@ -156,6 +157,8 @@
       };
     };
   };
+
+  dconf.enable = true;
 
 
   # Home Manager can also manage your environment variables through

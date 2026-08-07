@@ -27,15 +27,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "t480"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # ── Networking ────────────────────────────────
+  networking = {
+    hostName = "t480";
+    wireless.enable = false; # Enables wireless support via wpa_supplicant.
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -206,12 +206,6 @@
 #    package = pkgs.unstable.open-webui;
 #  };
 
-  # ── Firewall ──────────────────────────────────
-  networking.firewall = {
-    enable = true;
-#    allowedTCPPorts = [ 6969 ];
-  };
-
   # music production config
   # ── Music Prod ────────────────────────────────
   musnix.enable = true;
@@ -226,6 +220,7 @@
 #    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
 #    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -233,11 +228,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
