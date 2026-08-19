@@ -65,6 +65,7 @@
     wireshark
     tor-browser
     distrobox
+    virtualbox
 
     # music prod
     ardour
