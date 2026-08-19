@@ -48,10 +48,7 @@
     kdePackages.kleopatra
     libreoffice
     obsidian
-    firefox
-    mullvad-browser
     kdePackages.okular
-    qbittorrent
 
     # terminal
     fastfetch
@@ -76,6 +73,7 @@
     # misc
     unetbootin
     copyq
+    qbittorrent
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -116,7 +114,7 @@
   };
 
   programs.librewolf = {
-    enable = false;
+    enable = true;
     settings = {
       # vertical tabs config
       "sidebar.verticalTabs" = true;
@@ -160,7 +158,6 @@
   };
 
   dconf.enable = true;
-
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

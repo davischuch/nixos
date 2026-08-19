@@ -30,7 +30,6 @@
   # ── Networking ────────────────────────────────
   networking = {
     hostName = "t480";
-#    wireless.enable = false; # Enables wireless support via wpa_supplicant.
     networkmanager.enable = true;
     firewall = {
       enable = true;
@@ -173,13 +172,6 @@
       };
     };
   };
-
-  # ── Insecure Packages ─────────────────────────
-  nixpkgs.config.permittedInsecurePackages = [
-    "docker-28.5.2"
-    "librewolf-152.0.2-1"
-    "librewolf-unwrapped-152.0.2-1"
-  ];
 
   # ── Unfree Packages ───────────────────────────
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
