@@ -166,7 +166,7 @@ now(function()
 		},
 	})
 	-- The Lsp's are being installed with nixpkgs
-	require("lspconfig").nixd.setup({
+  vim.lsp.config("nixd", {
 		cmd = { "nixd" },
 		settings = {
 			nixd = {
@@ -184,9 +184,10 @@ now(function()
 			},
 		},
 	})
-	require("lspconfig").lua_ls.setup({})
-	require("lspconfig").ts_ls.setup({})
-	require("lspconfig").ccls.setup({})
+	vim.lsp.enable("nixd")
+	vim.lsp.enable("lua_ls")
+	vim.lsp.enable("ts_ls")
+	vim.lsp.enable("ccls")
 end)
 
 now(function()

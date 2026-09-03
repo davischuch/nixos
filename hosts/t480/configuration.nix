@@ -179,11 +179,10 @@
     "steam-unwrapped"    
     "obsidian"
     "stm32cubemx"
+    "burpsuite"
   ];
 
   virtualisation.docker.enable = true;
-
-  services.flatpak.enable = true;
 
   programs.direnv.enable = true;
 
@@ -211,6 +210,14 @@
 #    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
 #    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
 #    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
+  # ── Flatpak config  ───────────────────────────
+  services.flatpak = {
+    enable = true;
+    packages = [
+      "com.stremio.Stremio"
+    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

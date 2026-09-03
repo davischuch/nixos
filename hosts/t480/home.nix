@@ -3,9 +3,9 @@
 {
   imports = [
     # dotfiles
-    ../.././modules/dotfiles/nvim.nix
-    ../.././modules/dotfiles/foot.nix
-    ../.././modules/dotfiles/tmux.nix
+    ../.././modules/nvim.nix
+    ../.././modules/foot.nix
+    ../.././modules/tmux.nix
 
     # direnv flakes
     #../.././modules/direnv/embeded.nix
@@ -63,6 +63,7 @@
     tor-browser
     distrobox
     virtualbox
+    burpsuite
 
     # music prod
     ardour

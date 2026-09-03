@@ -21,10 +21,10 @@
           inputs.nix-flatpak.nixosModules.nix-flatpak
 
           inputs.home-manager.nixosModules.default {
-	    home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.user = ./hosts/vostro/home.nix;
+	        home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+          home-manager.users.user = ./hosts/vostro/home.nix;
 	  }
         ];
       };
