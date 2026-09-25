@@ -43,7 +43,7 @@
 
     # basics
     keepassxc
-    xfce.thunar
+    thunar
     thunderbird
     kdePackages.kleopatra
     libreoffice
@@ -75,6 +75,8 @@
     unetbootin
     copyq
     qbittorrent
+    wine64
+    winetricks
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -101,7 +103,19 @@
 
   programs.bash = {
     enable = true;
-    bashrcExtra = ''PS1="\n\e[0;32m\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m─╼\e[m "'';
+    bashrcExtra = ''
+      PS1="\n\e[0;32m\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m─╼\e[m "
+
+      #aliases
+      alias ls='eza -a'
+      alias ll='eza -lh --git'
+      alias find='fd'
+      alias cat='bat'
+      #alias diff
+      #alias add 
+      #alias commit
+      #alias all
+    '';
   };
 
   programs.foot = {

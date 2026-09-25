@@ -13,14 +13,18 @@
 {
   environment.sessionVariables = {
     NH_FLAKE = "/home/davi/nixos";
+    XDG_DATA_DIRS = [
+      "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+      "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+    ];
   };
-
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
     
     # modules
     ./../../modules/prog.nix
+    ./../../modules/virtualisation.nix
   ];
 
   # Bootloader.
@@ -78,10 +82,10 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
+#    alsa.enable = true;
+#    alsa.support32Bit = true;
+#    pulse.enable = true;
+#    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -134,7 +138,6 @@
     docker
     gcc
     gdb
-    wine
     pciutils
     iftop
     upower
@@ -217,6 +220,7 @@
     enable = true;
     packages = [
       "com.stremio.Stremio"
+      "com.usebottles.bottles"
     ];
   };
 
