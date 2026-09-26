@@ -152,13 +152,14 @@
 
     # TUIs / terminal shananingans
     btop
-    lf
     fzf
     fd
     eza
     zoxide
     tldr
     bat
+    xplr
+    yazi
   ];
 
   # ── Fonts ─────────────────────────────────────
@@ -183,6 +184,10 @@
     "obsidian"
     "stm32cubemx"
     "burpsuite"
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
   ];
 
   virtualisation.docker.enable = true;
@@ -221,8 +226,31 @@
     packages = [
       "com.stremio.Stremio"
       "com.usebottles.bottles"
+      "com.visualstudio.code"
     ];
   };
+
+  # ── SearcXNG config  ──────────────────────────
+  services.searx = {
+    enable = true;
+    redisCreateLocally = false;
+    settings = {
+      server = {
+        port = 8888;
+        bind_address = "127.0.0.1";
+        secret_key = "supersecretkey";
+        public_instance = true;
+        image_proxy = true;
+        method = "GET";
+      };
+      ui = {
+        static_use_hash = true;
+        query_in_title = true;
+      };
+    };
+  };
+
+  services.nginx.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

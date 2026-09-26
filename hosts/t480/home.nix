@@ -48,6 +48,7 @@
     kdePackages.kleopatra
     libreoffice
     obsidian
+    logseq
     kdePackages.okular
 
     # terminal
@@ -107,10 +108,17 @@
       PS1="\n\e[0;32m\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m─╼\e[m "
 
       #aliases
+      eval "$(zoxide init bash --cmd cd)"
+
       alias ls='eza -a'
       alias ll='eza -lh --git'
+
       alias find='fd'
+
       alias cat='bat'
+
+      alias lf='yazi'
+
       #alias diff
       #alias add 
       #alias commit
