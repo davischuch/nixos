@@ -65,10 +65,13 @@
     distrobox
     virtualbox
     burpsuite
+    unstable.opencode
 
     # music prod
     ardour
+    lv2
     calf
+    hydrogen
     x42-plugins
     helm
 
@@ -106,12 +109,13 @@
     enable = true;
     bashrcExtra = ''
       PS1="\n\e[0;32m\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m─╼\e[m "
+      export EDITOR=nvim
 
       #aliases
       eval "$(zoxide init bash --cmd cd)"
 
       alias ls='eza -a'
-      alias ll='eza -lh --git'
+      alias ll='eza -lha --git'
 
       alias find='fd'
 
