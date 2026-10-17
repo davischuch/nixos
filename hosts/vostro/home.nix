@@ -3,7 +3,9 @@
 {
   imports = [
     # dotfiles
-    ../.././modules/home/dotfiles/nvim.nix
+    ../.././modules/nvim.nix
+    ../.././modules/foot.nix
+    ../.././modules/tmux.nix
 
     # direnv flakes
     #../.././modules/home/direnv/embeded.nix
@@ -87,7 +89,37 @@
 
   programs.bash = {
     enable = true;
-    bashrcExtra = ''PS1="\n\e[0;32m\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m─╼\e[m "'';
+    bashrcExtra = ''
+      PS1="\n\e[0;32m\e[m\u@\h [\e[0;32m\w\e[m \$]\e[0;32m─╼\e[m "
+      export EDITOR=nvim
+
+      #aliases
+      eval "$(zoxide init bash --cmd cd)"
+
+      alias ls='eza -a'
+      alias ll='eza -lha --git'
+
+      alias find='fd'
+
+      alias cat='bat'
+
+      alias lf='yazi'
+
+      #alias diff
+      #alias add 
+      #alias commit
+      #alias all
+    '';
+  };
+
+  programs.foot = {
+    settings = {
+      main = {
+        term = "xterm-256color";
+        font = "monospace:size=24";
+        pad = "15x5";
+      };
+    };
   };
 
   # Home Manager can also manage your environment variables through

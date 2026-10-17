@@ -108,44 +108,43 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     # terminals
-     alacritty
-     foot
+    # terminals
+    alacritty
+    foot
 
-     # editors
-     vim 
-     neovim
+    # editors
+    vim
+    neovim
 
-     # general tools
-     wget
-     git
-     docker
-     gcc
-     gdb
-     wine
+    # general tools
+    wget
+    git
+    docker
+    gcc
+    gdb
+    pciutils
+    iftop
+    upower
+    usbutils
 
-     # nix tools
-     nh
-     direnv
-     nix-direnv
-     home-manager
-     nixd
+    # nix tools
+    nh
+    direnv
+    nix-direnv
+    home-manager
+    nixd
 
-     # TUIs / terminal shananingans
-     btop
-     lf
-     fzf
-     fd
-     eza
-     zoxide
-     tldr
-     bat
+    # TUIs / terminal shananingans
+    btop
+    fzf
+    fd
+    eza
+    zoxide
+    tldr
+    bat
+    xplr
+    yazi
   ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "docker-28.5.2"
-  ];
-
 
   # Enable flatpaks
   services.flatpak.enable = true;
