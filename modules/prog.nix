@@ -2,13 +2,13 @@
 
 {
   environment.systemPackages = with pkgs; [
+    # firmware stuff
     arduino-ide
     python3
     gdb
     clang-tools
     cmake
     codespell
-#    conan
     cppcheck
     doxygen
     gtest
@@ -18,5 +18,17 @@
     vcpkg-tool
     stm32cubemx
     vscodium-fhs
+    
+    #kali stuff
+    nmap
+    zenmap
+    wireshark
+    hashcat
+    netcat
+    thc-hydra
+    sqlmap
+    burpsuite
+    metasploit
+    john
   ];
 }

@@ -60,11 +60,9 @@
     gnome-tweaks
 
     # dev kinda
-    wireshark
     tor-browser
     distrobox
     virtualbox
-    burpsuite
     unstable.opencode
 
     # music prod
