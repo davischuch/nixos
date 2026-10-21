@@ -45,24 +45,11 @@
     # '')
 
     # basics
-    librewolf
-    keepassxc
-    xfce.thunar
-    thunderbird
     kdePackages.kleopatra
-    libreoffice
-    obsidian
 
     # terminal
     fastfetch
     tmux
-    
-    # extensions
-    gnomeExtensions.caffeine
-
-    # dev kinda
-    wireshark
-    tor-browser
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -110,16 +97,6 @@
       #alias commit
       #alias all
     '';
-  };
-
-  programs.foot = {
-    settings = {
-      main = {
-        term = "xterm-256color";
-        font = "monospace:size=24";
-        pad = "15x5";
-      };
-    };
   };
 
   # Home Manager can also manage your environment variables through

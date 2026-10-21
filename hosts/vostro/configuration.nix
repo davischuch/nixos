@@ -88,7 +88,7 @@
   users.users.user = {
     isNormalUser = true;
     description = "user";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -108,10 +108,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # terminals
-    alacritty
-    foot
-
     # editors
     vim
     neovim
@@ -119,7 +115,6 @@
     # general tools
     wget
     git
-    docker
     gcc
     gdb
     pciutils
@@ -144,12 +139,32 @@
     bat
     xplr
     yazi
+
+    # docker tools
+    compose2nix
   ];
 
   # Enable flatpaks
   services.flatpak.enable = true;
 
   programs.direnv.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    daemon.settings = {
+      experimental = true;
+      default-address-pools = [
+        {
+          base = "172.30.0.0/16";
+          size = 24;
+        }
+      ];
+    };
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
