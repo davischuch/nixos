@@ -24,6 +24,7 @@
     
     # modules
     ./../../modules/prog.nix
+    ./../../modules/tor.nix
     ./../../modules/virtualisation.nix
   ];
 
@@ -149,6 +150,7 @@
     nix-direnv
     home-manager
     nixd
+    nix-index
 
     # TUIs / terminal shananingans
     btop
@@ -184,6 +186,7 @@
     "obsidian"
     "stm32cubemx"
     "burpsuite"
+    "discord"
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -194,20 +197,19 @@
 
   programs.direnv.enable = true;
 
-  # ── Local LLMs ────────────────────────────────
-  services.ollama = {
-    enable = true;
+#  ── Local LLMs ────────────────────────────────
+#  services.ollama = {
+#    enable = true;
 #    package = pkgs.ollama-cuda;
 #    acceleration = "cuda";
-  };
+# };
 #  services.open-webui = {
 #    enable = true;
 #    package = pkgs.unstable.open-webui;
 #  };
 
-  # music production config
-  # ── Music Prod ────────────────────────────────
-  musnix.enable = true;
+#  ── Music Prod ────────────────────────────────
+#  musnix.enable = true;
 #  musnix.soundcardPciId = "PCI:5@0.0.5";
 #  musnix.kernel.realtime = true;
 #  musnix.rtirq.enable = true;
@@ -230,27 +232,27 @@
     ];
   };
 
-  # ── SearcXNG config  ──────────────────────────
-  services.searx = {
-    enable = true;
-    redisCreateLocally = false;
-    settings = {
-      server = {
-        port = 8888;
-        bind_address = "127.0.0.1";
-        secret_key = "supersecretkey";
-        public_instance = true;
-        image_proxy = true;
-        method = "GET";
-      };
-      ui = {
-        static_use_hash = true;
-        query_in_title = true;
-      };
-    };
-  };
+#  ── SearcXNG config  ──────────────────────────
+#  services.searx = {
+#    enable = true;
+#    redisCreateLocally = false;
+#    settings = {
+#      server = {
+#        port = 8888;
+#        bind_address = "127.0.0.1";
+#        secret_key = "supersecretkey";
+#        public_instance = true;
+#        image_proxy = true;
+#        method = "GET";
+#      };
+#      ui = {
+#        static_use_hash = true;
+#        query_in_title = true;
+#      };
+#    };
+#  };
 
-  services.nginx.enable = true;
+#  services.nginx.enable = true;
 
   # ── Bluetooth config  ──────────────────────────
   hardware.bluetooth = {
@@ -259,6 +261,20 @@
   };
 
   hardware.enableRedistributableFirmware = true;
+
+  # ── Proxychains  ────────────────────────────────
+  programs.proxychains = {
+    enable = true;
+    chain.type = "dynamic";
+    proxyDNS = true;
+    proxies = {
+      tor = {
+        type = "socks4";
+        host = "127.0.0.1";
+        port = 9050;
+      };
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

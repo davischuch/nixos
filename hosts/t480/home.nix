@@ -50,6 +50,7 @@
     obsidian
     logseq
     kdePackages.okular
+    discord
 
     # terminal
     fastfetch
@@ -75,10 +76,13 @@
 
     # misc
     unetbootin
+    parted
+    cryptsetup
     copyq
     qbittorrent
     wine64
     winetricks
+    vlc
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

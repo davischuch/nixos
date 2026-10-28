@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # firmware stuff
+    ## firmware stuff
     arduino-ide
     python3
     gdb
@@ -19,7 +19,7 @@
     stm32cubemx
     vscodium-fhs
     
-    #kali stuff
+    ## kali stuff
     nmap
     zenmap
     wireshark
@@ -30,5 +30,6 @@
     burpsuite
     metasploit
     john
+    proxychains
   ];
 }
